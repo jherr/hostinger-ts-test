@@ -64,7 +64,7 @@ function App() {
             <h1 className="text-6xl md:text-7xl font-black text-white [letter-spacing:-0.08em]">
               <span className="text-gray-300">TANSTACK</span>{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                JACK
+                JOE
               </span>
             </h1>
           </div>
