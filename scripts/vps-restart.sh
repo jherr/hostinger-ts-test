@@ -67,9 +67,6 @@ stash_changes() {
 pull_latest() {
     print_step "1/5" "Pulling latest changes from origin/main..."
     
-    # Fetch latest changes
-    git fetch origin
-    
     # Check if main branch exists, fallback to master if not
     if git show-ref --verify --quiet refs/remotes/origin/main; then
         BRANCH="main"
@@ -84,9 +81,11 @@ pull_latest() {
     # Remove any files that aren't tracked by git before pulling to prevent conflicts (e.g., src/routeTree.gen.ts)
     print_info "Cleaning untracked files before pulling latest changes (to avoid conflicts with generated files)..."
     git clean -fd
-
     git reset --hard origin/$BRANCH
 
+    # Fetch latest changes
+    git fetch origin
+    
     # Pull the changes
     git pull origin $BRANCH
     print_success "Pulled latest changes from origin/$BRANCH"
