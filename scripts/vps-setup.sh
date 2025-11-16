@@ -283,9 +283,9 @@ install_app_dependencies() {
     
     # Run as the non-root user if we're root
     if [ "$EUID" -eq 0 ] && [ -n "$(logname)" ]; then
-        sudo -u $(logname) npm ci --omit=dev || sudo -u $(logname) npm install
+        sudo -u $(logname) npm ci || sudo -u $(logname) npm install
     else
-        npm ci --omit=dev || npm install
+        npm ci || npm install
     fi
     
     print_success "App dependencies installed"
