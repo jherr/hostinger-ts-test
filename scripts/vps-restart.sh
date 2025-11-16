@@ -92,7 +92,7 @@ install_dependencies() {
     
     # Check if package-lock.json exists for faster ci install
     if [ -f "package-lock.json" ]; then
-        npm ci --production=false
+        npm ci --omit=dev 
     else
         npm install
     fi

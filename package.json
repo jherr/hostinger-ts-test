@@ -6,7 +6,8 @@
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "serve": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
