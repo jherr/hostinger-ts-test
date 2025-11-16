@@ -81,6 +81,9 @@ pull_latest() {
         exit 1
     fi
     
+    # Remove any files that aren't tracked by git before pulling to prevent conflicts (e.g., src/routeTree.gen.ts)
+    print_info "Cleaning untracked files before pulling latest changes (to avoid conflicts with generated files)..."
+    git clean -fd
     # Pull the changes
     git pull origin $BRANCH
     print_success "Pulled latest changes from origin/$BRANCH"
